@@ -14,20 +14,24 @@ class InstallCommand extends Command
     {
         $force = $this->option('force');
 
+        // __DIR__ is: packages/StripeKit/src/Console
+        // ../../ takes us back to: packages/StripeKit
+
         $this->publishFile(
-            __DIR__ . '/../../../config/stripe-kit.php',
+            __DIR__ . '/../../config/stripe-kit.php',
             config_path('stripe-kit.php'),
             $force
         );
 
         $this->publishFile(
-            __DIR__ . '/../../../resources/views/stripe.blade.php',
+            __DIR__ . '/../../resources/views/stripe.blade.php',
             resource_path('views/stripe.blade.php'),
             $force
         );
 
+        // ../ takes us back to: packages/StripeKit/src
         $this->publishFile(
-            __DIR__ . '/../../Http/Controllers/StripeController.php',
+            __DIR__ . '/../Http/Controllers/StripeController.php',
             app_path('Http/Controllers/StripeController.php'),
             $force
         );
@@ -43,7 +47,7 @@ class InstallCommand extends Command
         }
 
         if (File::exists($destination) && !$force) {
-            $this->warn("Skipped: $destination already exists");
+            $this->warn("Skipped: $destination already exists. Use --force to overwrite.");
             return;
         }
 
