@@ -6,44 +6,35 @@ use Illuminate\Routing\Controller;
 use Stripe\Stripe;
 use Stripe\Checkout\Session;
 
-class StripeController extends Controller
+class StripeServiceProvider extends ServiceProvider
 {
-    public function index()
+    public function register(): void
     {
-        return view('stripe-kit::stripe');
+        $this->mergeConfigFrom(
+            __DIR__ . '/../../config/stripe-kit.php',
+            'stripe-kit'
+        );
     }
 
-    public function checkout()
+    public function boot(): void
     {
-        Stripe::setApiKey(config('stripe-kit.secret_key'));
+        $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
 
-        $session = Session::create([
-            'payment_method_types' => ['card'],
-            'line_items' => [[
-                'price_data' => [
-                    'currency' => 'usd',
-                    'product_data' => [
-                        'name' => 'Demo Product',
-                    ],
-                    'unit_amount' => 1000,
-                ],
-                'quantity' => 1,
-            ]],
-            'mode' => 'payment',
-            'success_url' => url('/stripe/success'),
-            'cancel_url' => url('/stripe/cancel'),
-        ]);
+        $this->loadViewsFrom(
+            __DIR__ . '/../../resources/views',
+            'stripe-kit'
+        );
 
-        return redirect($session->url);
-    }
+        // publish config
+        $this->publishes([
+            __DIR__ . '/../../config/stripe-kit.php' => config_path('stripe-kit.php'),
+        ], 'stripe-kit-config');
 
-    public function success()
-    {
-        return "Payment Success";
-    }
-
-    public function cancel()
-    {
-        return "Payment Cancelled";
+        // register artisan commands ❗IMPORTANT
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                InstallCommand::class,
+            ]);
+        }
     }
 }
