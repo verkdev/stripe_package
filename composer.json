@@ -13,7 +13,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Verkdev\\StripePackage\\Providers\\StripeServiceProvider"
+                "Verkdev\\StripeKit\\Providers\\StripeServiceProvider"
             ]
         }
     },
