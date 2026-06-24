@@ -1,7 +1,6 @@
 {
     "name": "verkdev/stripe-package",
     "description": "Laravel Stripe Package",
-    "type": "library",
     "autoload": {
         "psr-4": {
             "Mohsin\\StripeKit\\": "src/"
@@ -15,7 +14,6 @@
         }
     },
     "require": {
-        "php": "^8.2",
-        "stripe/stripe-php": "^18.0"
+        "stripe/stripe-php": "^17.3 || ^18.0"
     }
 }
