@@ -1,0 +1,19 @@
+{
+    "name": "mohsin/stripe-kit",
+    "description": "Laravel Stripe Package",
+    "autoload": {
+        "psr-4": {
+            "Mohsin\\StripeKit\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mohsin\\StripeKit\\Providers\\StripeServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "stripe/stripe-php": "^18.0"
+    }
+}
