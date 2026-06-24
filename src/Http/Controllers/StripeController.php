@@ -1,6 +1,6 @@
 <?php
 
-namespace Mohsin\StripeKit\Http\Controllers;
+namespace Verkdev\StripeKit\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use Stripe\Stripe;

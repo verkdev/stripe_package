@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Mohsin\StripeKit\Http\Controllers\StripeController;
+use Verkdev\StripeKit\Http\Controllers\StripeController;
 
 Route::get('/stripe', [StripeController::class, 'index']);
 Route::post('/stripe/checkout', [StripeController::class, 'checkout']);

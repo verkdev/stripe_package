@@ -1,6 +1,6 @@
 <?php
 
-namespace Mohsin\StripeKit\Console;
+namespace Verkdev\StripeKit\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;

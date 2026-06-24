@@ -1,9 +1,9 @@
 <?php
 
-namespace Mohsin\StripeKit\Providers;
+namespace Verkdev\StripeKit\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Mohsin\StripeKit\Console\InstallCommand;
+use Verkdev\StripeKit\Console\InstallCommand;
 
 class StripeServiceProvider extends ServiceProvider
 {
