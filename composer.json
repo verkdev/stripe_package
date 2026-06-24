@@ -3,26 +3,22 @@
     "description": "Laravel Stripe Package",
     "type": "library",
     "license": "MIT",
-
     "autoload": {
         "psr-4": {
             "Verkdev\\StripePackage\\": "src/"
         }
     },
-
     "extra": {
         "laravel": {
             "providers": [
-                "Verkdev\\StripeKit\\Providers\\StripeServiceProvider"
+                "Verkdev\\StripePackage\\Providers\\StripeServiceProvider"
             ]
         }
     },
-
     "require": {
         "php": ">=8.1",
         "stripe/stripe-php": "^17.3 || ^18.0"
     },
-
     "minimum-stability": "stable",
     "prefer-stable": true
 }
