@@ -7,14 +7,14 @@ namespace Composer\Autoload;
 class ComposerStaticInitac18f0b18bf0222e598111820b893a01
 {
     public static $prefixLengthsPsr4 = array (
-        'M' => 
+        'V' => 
         array (
-            'Mohsin\\StripeKit\\' => 17,
+            'Verkdev\\StripePackage\\' => 22,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Mohsin\\StripeKit\\' => 
+        'Verkdev\\StripePackage\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),

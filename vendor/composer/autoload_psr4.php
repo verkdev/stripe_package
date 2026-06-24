@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Mohsin\\StripeKit\\' => array($baseDir . '/src'),
+    'Verkdev\\StripePackage\\' => array($baseDir . '/src'),
 );
